@@ -13,9 +13,10 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore api keys
+/config/initializers/app_keys.rb
+
 /node_modules
 /yarn-error.log
 
 .byebug_history
-
-*/app_keys.rb
