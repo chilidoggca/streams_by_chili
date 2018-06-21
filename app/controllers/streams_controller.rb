@@ -1,4 +1,6 @@
 class StreamsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     conn = Faraday.new(:url => 'https://www.googleapis.com')
     response = conn.get do |req|

@@ -1,36 +1,67 @@
 class ChatsController < ApplicationController
-  def post_message
-    conn = Faraday.new(:url => 'https://www.googleapis.com') do |builder|
-      builder.request :oauth2, 'access_token'
-    end
-    response = conn.post do |req|
+  before_action :authenticate_user!
+
+  def get_messages
+    @chat_id = params[:chat_id]
+    conn = Faraday.new(:url => 'https://www.googleapis.com')
+    response = conn.get do |req|
       req.url '/youtube/v3/liveChat/messages'
+      req.params['liveChatId'] = @chat_id
+      # req.params['liveChatId'] = 'Cg0KC2I5Nm9rNi1VTlNN'
       req.params['part'] = 'snippet'
-      req.headers = {
-        "Authorization": 'access_token'
-      }
-      req.body = {
-        "snippet": {
-          "liveChatId": "Cg0KC0NfdGdLLV9YQ0Yw",
-          "type": "textMessageEvent",
-          "textMessageDetails": {
-            "messageText": "testing api"
-          }
-        }
-      }
+      req.params['maxResults'] = '2000'
+      req.params['key'] = ENV['GOOGLE_API_KEY']
     end
     if response.success?
       puts "#{response.success?}=================="
-      # data = JSON.parse(response.body)
-      # puts data
-      puts response.body
-      redirect_to streams_path
+      data = JSON.parse(response.body)
+      data['items'].each do |item|
+        Message.create(
+          messageId: item['id']
+          liveChatId: item['snippet']['liveChatId'],
+          authorChannelId: item['snippet']['authorChannelId'],
+          displayMessage: item['snippet']['displayMessage'],
+          publishedAt: item['snippet']['publishedAt']
+        )
+      end
+      render json: response.body
     else
       puts 'failed!!!!!!!!!!!!!!!!!!!!!!!'
       puts response.body
-      # data = JSON.parse(response.body)
-      # puts data
-      redirect_to streams_path
+      render json: response.body
     end
   end
+
+  # def post_message
+  #   # faraday with oauth2 middleware not quite workign yet
+  #   conn = Faraday.new(:url => 'https://www.googleapis.com') do |builder|
+  #     builder.request :oauth2, 'access_token'
+  #   end
+  #   response = conn.post do |req|
+  #     req.url '/youtube/v3/liveChat/messages'
+  #     req.params['part'] = 'snippet'
+  #     req.headers = {
+  #       "Authorization": 'access_token'
+  #     }
+  #     req.body = {
+  #       "snippet": {
+  #         "liveChatId": "UCTru_vI673uz8IddTG6GZJw",
+  #         "type": "textMessageEvent",
+  #         "textMessageDetails": {
+  #           "messageText": "testing api"
+  #         }
+  #       }
+  #     }
+  #   end
+  #   if response.success?
+  #     puts "#{response.success?}=================="
+  #     puts response.body
+  #     redirect_to streams_path
+  #   else
+  #     puts 'failed!!!!!!!!!!!!!!!!!!!!!!!'
+  #     puts response.body
+  #     redirect_to streams_path
+  #   end
+  # end
+
 end
