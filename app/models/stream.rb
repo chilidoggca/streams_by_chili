@@ -14,7 +14,7 @@ class Stream < ApplicationRecord
     end
     data = JSON.parse(response.body)
     data['items'].each do |item|
-      self.livechatId = item['liveStreamingDetails']['activeLiveChatId']
+      self.live_chat_id = item['liveStreamingDetails']['activeLiveChatId']
     end
   end
 

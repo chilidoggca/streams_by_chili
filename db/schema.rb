@@ -10,21 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180621153730) do
+ActiveRecord::Schema.define(version: 20180621183027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "messages", force: :cascade do |t|
+    t.string "messageId"
+    t.string "live_chat_id"
+    t.string "authorChannelId"
+    t.string "author_name"
+    t.string "displayMessage"
+    t.string "publishedAt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["messageId"], name: "index_messages_on_messageId", unique: true
+  end
 
   create_table "streams", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.string "videoId"
     t.string "thumbnail"
-    t.string "livechatId"
+    t.string "live_chat_id"
     t.string "publishedAt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["livechatId"], name: "index_streams_on_livechatId", unique: true
+    t.index ["live_chat_id"], name: "index_streams_on_live_chat_id", unique: true
     t.index ["videoId"], name: "index_streams_on_videoId", unique: true
   end
 

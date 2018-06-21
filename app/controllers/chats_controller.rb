@@ -17,8 +17,8 @@ class ChatsController < ApplicationController
       data = JSON.parse(response.body)
       data['items'].each do |item|
         Message.create(
-          messageId: item['id']
-          liveChatId: item['snippet']['liveChatId'],
+          messageId: item['id'],
+          live_chat_id: item['snippet']['liveChatId'],
           authorChannelId: item['snippet']['authorChannelId'],
           displayMessage: item['snippet']['displayMessage'],
           publishedAt: item['snippet']['publishedAt']

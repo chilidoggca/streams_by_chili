@@ -5,7 +5,7 @@ class CreateStreams < ActiveRecord::Migration[5.1]
       t.string :description
       t.string :videoId, index: {unique: true}
       t.string :thumbnail
-      t.string :livechatId, index: {unique: true}
+      t.string :live_chat_id, index: {unique: true}
       t.string :publishedAt
 
       t.timestamps

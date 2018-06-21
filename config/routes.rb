@@ -12,7 +12,11 @@ Rails.application.routes.draw do
 
   resources :streams, only: :index
 
-  get 'chats/post_message'
+  # get 'chats/post_message'
   get 'chats/get_messages'
+  
+  get 'messages', :to => 'messages#index'
+  get 'messages/author', :to => 'messages#author'
+  get 'messages/chat', :to => 'messages#chat'
 
 end
