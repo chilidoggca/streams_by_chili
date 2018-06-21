@@ -6,27 +6,27 @@ class StreamsController < ApplicationController
       req.params['part'] = 'snippet'
       req.params['eventType'] = 'live'
       req.params['broadcastType'] = 'all'
-      # req.params['resultsPerPage'] = '10'
       req.params['maxResults'] = '20'
       req.params['type'] = 'video'
       req.params['videoCategoryId'] = '20'
       req.params['key'] = ENV['GOOGLE_API_KEY']
     end
-
-    @streams = JSON.parse(response.body)
-
-    # @streams.items.each do |i|
-    #   i['id']['videoId']
-    #
-    #   buildApiRequest('GET',
-    #   '/youtube/v3/videos', {
-    #       'id': videoID,
-    #       'part': 'snippet,contentDetails,statistics,liveStreamingDetails'
-    #   });
-    #
-    # end
-
-
+    data = JSON.parse(response.body)
+    data['items'].each do |item|
+      video_id = item['id']['videoId']
+      video_response = conn.get do |req|
+        req.url '/youtube/v3/videos'
+        req.params['id'] = video_id
+        req.params['part'] = 'snippet,liveStreamingDetails'
+        req.params['key'] = ENV['GOOGLE_API_KEY']
+      end
+      video_data = JSON.parse(video_response.body)
+      video_data['items'].each do |video_item|
+        item['liveStreamingDetails'] = video_item['liveStreamingDetails']
+        # item['livechatId'] = video_item['liveStreamingDetails']['activeLiveChatId']
+      end
+    end
+    @streams = data
     render json: @streams
   end
 end
