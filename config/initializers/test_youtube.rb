@@ -15,7 +15,19 @@ response = conn.get do |req|
   req.params['videoCategoryId'] = '20'
   req.params['key'] = ENV['GOOGLE_API_KEY']
 end
-# data = JSON.parse(response.body)
+data = JSON.parse(response.body)
+data['items'].each do |item|
+  # puts "================item==========================="
+  Stream.create(
+    title: item['snippet']['title'],
+    description: item['snippet']['description'],
+    videoId: item['id']['videoId'],
+    thumbnail: item['snippet']['thumbnails']['high']['url'],
+    publishedAt: item['snippet']['publishedAt']
+  )
+end
+
+
 # puts data
 # data.each do |i, j|
 #   if i == 'id'
