@@ -37,7 +37,7 @@ class StreamShowPage extends Component {
   render () {
     const {stream, loading} = this.state;
     const {videoId = ''} = stream;
-    const {thumbnail = ''} = stream;
+    // const {thumbnail = ''} = stream;
 
     if (loading) {
       return (
@@ -55,7 +55,8 @@ class StreamShowPage extends Component {
         className="StreamShowPage"
         style={{padding:  '60px 20px 20px'}}
       >
-        <Iframe videoId={videoId} thumbnail={thumbnail} />
+        <Iframe videoId={videoId} />
+        {/* <img src="`${thumbnail}`" /> */}
       </main>
     );
   }

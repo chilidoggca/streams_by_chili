@@ -13,13 +13,13 @@ class MessageIndexPage extends Component {
 
   }
 
-  // componentDidMount () {
-  //   Message
-  //     .all()
-  //     .then(messages => {
-  //       this.setState({messages, loading: false})
-  //     });
-  // }
+  componentDidMount () {
+    Message
+      .all()
+      .then(messages => {
+        this.setState({messages, loading: false})
+      });
+  }
 
   render () {
     const {loading} = this.state;
@@ -36,33 +36,33 @@ class MessageIndexPage extends Component {
       )
     }
 
-    // return (
-    //   <main
-    //     className="MessageIndexPage"
-    //     style={{padding: '60px 20px 20px'}}
-    //   >
-    //     <h2>Messages</h2>
-    //     <div style={{paddingLeft: '10px'}}>
-    //       {
-    //         this.state.messages.map(message => (
-    //           <div key={message.id} className="messageItemDiv">
-    //             <Link to={`/messages/${message.id}`}>
-    //               {message.title}
-    //             </Link>
-    //             <Field name="Message Owner" value={message.message_owner.full_name} />
-    //             {
-    //               (true) ?
-    //               <button
-    //                 className="btn"
-    //                 onClick={this.deleteMessage(message.id)}
-    //               >Delete</button> : ''
-    //             }
-    //           </div>
-    //         ))
-    //       }
-    //     </div>
-    //   </main>
-    // );
+    return (
+      <main
+        className="MessageIndexPage"
+        style={{padding: '60px 20px 20px'}}
+      >
+        <h2>Messages</h2>
+        <div style={{paddingLeft: '10px'}}>
+          {
+            this.state.messages.map(message => (
+              <div key={message.id} className="messageItemDiv">
+                <Link to={`/messages/${message.id}`}>
+                  {message.title}
+                </Link>
+                <Field name="Message Owner" value={message.message_owner.full_name} />
+                {
+                  (true) ?
+                  <button
+                    className="btn"
+                    onClick={this.deleteMessage(message.id)}
+                  >Delete</button> : ''
+                }
+              </div>
+            ))
+          }
+        </div>
+      </main>
+    );
   }
 }
 

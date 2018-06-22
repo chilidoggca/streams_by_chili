@@ -20,7 +20,7 @@ export const Stream = {
   },
   get (id) {
     return fetch(
-      `${BASE_URL}/api/v1/auctions/${id}`,
+      `${BASE_URL}/api/v1/streams/${id}`,
       {
         headers: {
           'Authorization': getJwt()
