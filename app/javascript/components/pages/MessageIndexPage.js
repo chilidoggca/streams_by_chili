@@ -41,22 +41,28 @@ class MessageIndexPage extends Component {
         className="MessageIndexPage"
         style={{padding: '60px 20px 20px'}}
       >
-        <h2>Messages</h2>
-        <div style={{paddingLeft: '10px'}}>
+        <h2>All Messages</h2>
+        <div style={{padding: '20px', backgroundColor: '#fafafa'}}>
           {
             this.state.messages.map(message => (
-              <div key={message.id} className="messageItemDiv">
-                <Link to={`/messages/${message.id}`}>
-                  {message.title}
-                </Link>
-                <Field name="Message Owner" value={message.message_owner.full_name} />
-                {
-                  (true) ?
-                  <button
-                    className="btn"
-                    onClick={this.deleteMessage(message.id)}
-                  >Delete</button> : ''
-                }
+              <div key={message.id}
+                className="messageItemDiv"
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '20px',
+                  padding: '5px 20px',
+                  margin: '20px'
+                }}>
+                <div>
+                  <Link to={`/messages/${message.author_name}`}>
+                    <strong style={{fontSize: '10px', lineHeight: '1em'}}>
+                      {message.author_name}
+                    </strong>
+                  </Link>
+                </div>
+                <div>
+                  {message.displayMessage}
+                </div>
               </div>
             ))
           }
