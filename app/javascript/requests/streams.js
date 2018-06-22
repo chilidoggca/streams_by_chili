@@ -20,12 +20,7 @@ export const Stream = {
   },
   get (id) {
     return fetch(
-      `${BASE_URL}/api/v1/streams/${id}`,
-      {
-        headers: {
-          'Authorization': getJwt()
-         }
-      }
+      `${BASE_URL}/api/v1/streams/details?id=${id}`,
     )
       .then(res=> res.json())
   }

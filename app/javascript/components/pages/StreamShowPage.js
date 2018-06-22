@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import {Iframe} from '../Iframe';
-// import {StreamDetails} from '../StreamDetails';
-// import {BidList} from '../BidList';
-// import {BidForm} from '../BidForm';
-// import {Bid} from '../../requests/bids';
-// import {Stream} from '../../requests/streams';
+import {ChatBox} from '../ChatBox';
+import {Stream} from '../../requests/streams';
+// import {Message} from '../../requests/messages';
 
 class StreamShowPage extends Component {
 
@@ -20,24 +18,20 @@ class StreamShowPage extends Component {
 
   componentDidMount () {
     const {params} = this.props.match;
-    // Stream
-    //   .get(params.videoId)
-    //   .then(stream => {
-    //     this.setState({
-    //       stream,
-    //       loading: false
-    //     })
-    //   });
-    this.setState({
-      stream: params,
-      loading: false
-    })
+    const {videoId} = params;
+    Stream
+      .get(videoId)
+      .then(stream => {
+        this.setState({
+          stream,
+          loading: false
+        });
+      });
   }
 
   render () {
     const {stream, loading} = this.state;
-    const {videoId = ''} = stream;
-    // const {thumbnail = ''} = stream;
+    // console.log(stream);
 
     if (loading) {
       return (
@@ -55,8 +49,9 @@ class StreamShowPage extends Component {
         className="StreamShowPage"
         style={{padding:  '60px 20px 20px'}}
       >
-        <Iframe videoId={videoId} />
-        {/* <img src="`${thumbnail}`" /> */}
+        <h2>Video</h2>
+        <Iframe videoId={stream.id} />
+        <ChatBox chatId={stream.liveStreamingDetails.activeLiveChatId} />
       </main>
     );
   }

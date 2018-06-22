@@ -1,6 +1,6 @@
 class StreamsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     conn = Faraday.new(:url => 'https://www.googleapis.com')
     response = conn.get do |req|
@@ -31,4 +31,19 @@ class StreamsController < ApplicationController
     @streams = data
     render json: @streams
   end
+
+  def details
+    video_id = params[:id]
+    conn = Faraday.new(:url => 'https://www.googleapis.com')
+    response = conn.get do |req|
+      req.url '/youtube/v3/videos'
+      req.params['id'] = video_id
+      req.params['part'] = 'snippet,liveStreamingDetails'
+      req.params['key'] = ENV['GOOGLE_API_KEY']
+    end
+    video_data = JSON.parse(video_response.body)
+    @video_details = video_data
+    render json: @video_details
+  end
+
 end
