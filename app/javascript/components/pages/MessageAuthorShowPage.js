@@ -47,7 +47,8 @@ class MessageAuthorShowPage extends Component {
         className="MessageAuthorShowPage"
         style={{padding:  '60px 20px 20px'}}
       >
-        <h2>{author}'s Messages</h2>
+        <h2>Messages by {author}</h2>
+        <div style={{padding: '20px', backgroundColor: '#fafafa'}}>
         {
           this.state.messages.map(message => (
             <div key={message.id}
@@ -79,6 +80,7 @@ class MessageAuthorShowPage extends Component {
             </div>
           ))
         }
+        </div>
       </main>
     );
   }

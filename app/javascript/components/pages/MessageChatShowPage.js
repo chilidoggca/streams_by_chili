@@ -48,6 +48,7 @@ class MessageChatShowPage extends Component {
         style={{padding:  '60px 20px 20px'}}
       >
         <h2>Messages in Chat {chatId}</h2>
+        <div style={{padding: '20px', backgroundColor: '#fafafa'}}>
         {
           this.state.messages.map(message => (
             <div key={message.id}
@@ -79,6 +80,7 @@ class MessageChatShowPage extends Component {
             </div>
           ))
         }
+        </div>
       </main>
     );
   }

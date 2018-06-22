@@ -40,7 +40,8 @@ class ChatBox extends Component {
     console.log(messages);
     return (
       <div className="ChatBox">
-        <h2>ChatBox</h2>
+        <h3>ChatBox</h3>
+        <div style={{padding: '20px', backgroundColor: '#fafafa'}}>
         {
           messages.map(message => (
             <div key={message.id}
@@ -72,6 +73,7 @@ class ChatBox extends Component {
             </div>
           ))
         }
+        </div>
       </div>
     )
   }
