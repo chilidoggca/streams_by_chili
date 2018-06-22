@@ -4,7 +4,9 @@ import {
   HomePage,
   StreamIndexPage,
   StreamShowPage,
-  MessageIndexPage
+  MessageIndexPage,
+  MessageAuthorShowPage,
+  MessageChatShowPage,
 } from './pages';
 import {NavBar} from './NavBar';
 import {
@@ -44,6 +46,8 @@ class App extends Component {
             <Route path="/streams" exact component={StreamIndexPage} />
             <Route path="/streams/:videoId" component={StreamShowPage} />
             <Route path="/messages" exact component={MessageIndexPage} />
+            <Route path="/messages/author/:authorName" exact component={MessageAuthorShowPage} />
+            <Route path="/messages/chat/:chatId" exact component={MessageChatShowPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

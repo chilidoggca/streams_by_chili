@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
+      get 'messages/author', :to => 'messages#author'
+      get 'messages/chat', :to => 'messages#chat'
       resources :streams, only: [:index]
       resources :messages, only: [:index]
       resources :tokens, only: [:create]

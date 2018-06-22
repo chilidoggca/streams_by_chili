@@ -54,7 +54,7 @@ class MessageIndexPage extends Component {
                   margin: '20px'
                 }}>
                 <div>
-                  <Link to={`/messages/${message.author_name}`}>
+                  <Link to={`/messages/author/${message.author_name}`}>
                     <strong style={{fontSize: '10px', lineHeight: '1em'}}>
                       {message.author_name}
                     </strong>
@@ -62,6 +62,14 @@ class MessageIndexPage extends Component {
                 </div>
                 <div>
                   {message.displayMessage}
+                </div>
+                <div style={{fontSize: '10px', lineHeight: '1em', color: '#cccccc', textAlign: 'right'}}>
+                  chat id:
+                  <Link to={`/messages/chat/${message.live_chat_id}`}>
+                    <strong>
+                      {message.live_chat_id}
+                    </strong>
+                  </Link>
                 </div>
               </div>
             ))

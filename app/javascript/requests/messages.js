@@ -18,14 +18,25 @@ export const Message = {
     )
       .then(res => res.json())
   },
-  get (id) {
+  get_by_author (name) {
     return fetch(
-      `${BASE_URL}/api/v1/messages/${id}`,
-      {
-        headers: {
-          'Authorization': getJwt()
-         }
-      }
+      `${BASE_URL}/api/v1/messages/author?name=${name}`,
+      // {
+      //   headers: {
+      //     'Authorization': getJwt()
+      //    }
+      // }
+    )
+      .then(res=> res.json())
+  },
+  get_by_chat (id) {
+    return fetch(
+      `${BASE_URL}/api/v1/messages/chat?id=${id}`,
+      // {
+      //   headers: {
+      //     'Authorization': getJwt()
+      //    }
+      // }
     )
       .then(res=> res.json())
   }
