@@ -3,6 +3,7 @@ import {
   NotFoundPage,
   HomePage,
   StreamIndexPage,
+  StreamShowPage,
   MessageIndexPage
 } from './pages';
 import {NavBar} from './NavBar';
@@ -41,6 +42,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/streams" exact component={StreamIndexPage} />
+            <Route path="/streams/:videoId" component={StreamShowPage} />
             <Route path="/messages" exact component={MessageIndexPage} />
             <Route component={NotFoundPage} />
           </Switch>

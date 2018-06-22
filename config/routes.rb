@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
-  root :to => "client#index"
+  authenticated :user do
+    root :to => "client#index"
+  end
+  root :to => "streams#index"
 
   resources :streams, only: :index
 
@@ -22,5 +25,15 @@ Rails.application.routes.draw do
   get 'messages', :to => 'messages#index'
   get 'messages/author', :to => 'messages#author'
   get 'messages/chat', :to => 'messages#chat'
+
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :streams, only: [:index]
+      resources :messages, only: [:index]
+      resources :tokens, only: [:create]
+      resources :users, only: [:create]
+    end
+    match '*unmatched_route', to: 'application#not_found', via: :all
+  end
 
 end
