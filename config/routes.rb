@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   root :to => "streams#index"
 
   resources :streams, only: :index
+  get 'streams/details'
 
   # get 'chats/post_message'
   get 'chats/get_messages'
@@ -28,6 +29,10 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
+      get 'streams/details'
+      get 'chats/get_messages', :to => 'chats#get_messages'
+      get 'messages/author', :to => 'messages#author'
+      get 'messages/chat', :to => 'messages#chat'
       resources :streams, only: [:index]
       resources :messages, only: [:index]
       resources :tokens, only: [:create]

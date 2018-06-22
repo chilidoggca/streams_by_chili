@@ -32,4 +32,18 @@ class Api::V1::StreamsController < Api::ApplicationController
     render json: @streams
   end
 
+  def details
+    video_id = params[:id]
+    conn = Faraday.new(:url => 'https://www.googleapis.com')
+    response = conn.get do |req|
+      req.url '/youtube/v3/videos'
+      req.params['id'] = video_id
+      req.params['part'] = 'snippet,liveStreamingDetails'
+      req.params['key'] = ENV['GOOGLE_API_KEY']
+    end
+    video_data = JSON.parse(response.body)
+    @video_details = video_data['items'][0]
+    render json: @video_details
+  end
+
 end

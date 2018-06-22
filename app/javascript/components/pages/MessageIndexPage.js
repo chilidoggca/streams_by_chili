@@ -13,13 +13,13 @@ class MessageIndexPage extends Component {
 
   }
 
-  // componentDidMount () {
-  //   Message
-  //     .all()
-  //     .then(messages => {
-  //       this.setState({messages, loading: false})
-  //     });
-  // }
+  componentDidMount () {
+    Message
+      .all()
+      .then(messages => {
+        this.setState({messages, loading: false})
+      });
+  }
 
   render () {
     const {loading} = this.state;
@@ -36,33 +36,47 @@ class MessageIndexPage extends Component {
       )
     }
 
-    // return (
-    //   <main
-    //     className="MessageIndexPage"
-    //     style={{padding: '60px 20px 20px'}}
-    //   >
-    //     <h2>Messages</h2>
-    //     <div style={{paddingLeft: '10px'}}>
-    //       {
-    //         this.state.messages.map(message => (
-    //           <div key={message.id} className="messageItemDiv">
-    //             <Link to={`/messages/${message.id}`}>
-    //               {message.title}
-    //             </Link>
-    //             <Field name="Message Owner" value={message.message_owner.full_name} />
-    //             {
-    //               (true) ?
-    //               <button
-    //                 className="btn"
-    //                 onClick={this.deleteMessage(message.id)}
-    //               >Delete</button> : ''
-    //             }
-    //           </div>
-    //         ))
-    //       }
-    //     </div>
-    //   </main>
-    // );
+    return (
+      <main
+        className="MessageIndexPage"
+        style={{padding: '60px 20px 20px'}}
+      >
+        <h2>All Messages</h2>
+        <div style={{padding: '20px', backgroundColor: '#fafafa'}}>
+          {
+            this.state.messages.map(message => (
+              <div key={message.id}
+                className="messageItemDiv"
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '20px',
+                  padding: '5px 20px',
+                  margin: '20px'
+                }}>
+                <div>
+                  <Link to={`/messages/author/${message.author_name}`}>
+                    <strong style={{fontSize: '10px', lineHeight: '1em'}}>
+                      {message.author_name}
+                    </strong>
+                  </Link>
+                </div>
+                <div>
+                  {message.displayMessage}
+                </div>
+                <div style={{fontSize: '10px', lineHeight: '1em', color: '#cccccc', textAlign: 'right'}}>
+                  chat id:
+                  <Link to={`/messages/chat/${message.live_chat_id}`}>
+                    <strong>
+                      {message.live_chat_id}
+                    </strong>
+                  </Link>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </main>
+    );
   }
 }
 
