@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180621183027) do
+ActiveRecord::Schema.define(version: 20180621230328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180621183027) do
     t.string "publishedAt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "next_page_token"
     t.index ["messageId"], name: "index_messages_on_messageId", unique: true
   end
 
