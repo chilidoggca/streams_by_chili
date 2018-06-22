@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {
   NotFoundPage,
-  HomePage
+  HomePage,
+  StreamIndexPage,
+  MessageIndexPage
 } from './pages';
 import {NavBar} from './NavBar';
 import {
@@ -38,6 +40,8 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/streams" exact component={StreamIndexPage} />
+            <Route path="/messages" exact component={MessageIndexPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

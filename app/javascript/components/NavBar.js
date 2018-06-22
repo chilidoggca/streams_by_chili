@@ -11,7 +11,7 @@ function NavBar (props) {
         height: '55px'
       }}
     >
-      <a className="navbar-brand" href="#"><img src="streamsbychili.png" style={{height: '45px'}} /></a>
+      <Link className="navbar-brand" to="/"><img src="streamsbychili.png" style={{height: '45px'}} /></Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -21,10 +21,10 @@ function NavBar (props) {
             <Link style={{marginRight: '20px'}} to="/">Home</Link>
           </li>
           <li className="nav-item">
-            <Link style={{marginRight: '20px'}} to="/live">Live Streams</Link>
+            <Link style={{marginRight: '20px'}} to="/streams">Live Streams</Link>
           </li>
           <li className="nav-item">
-            <Link style={{marginRight: '20px'}} to="/archive">Messages Archive</Link>
+            <Link style={{marginRight: '20px'}} to="/messages">Chat Messages</Link>
           </li>
         </ul>
       </div>
