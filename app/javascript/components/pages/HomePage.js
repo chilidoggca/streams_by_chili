@@ -30,20 +30,20 @@ function HomePage (props) {
       </div>
       </div>
       <div style={{background: 'url("pixels.png") repeat scroll left top',
-        zIndex: '-19', position: 'absolute', top: '0',
+        zIndex: '-19', position: 'fixed', top: '0',
         left: '0', width: '100%', height: '100%'
       }}>
         &nbsp;
       </div>
       <div style={{background: 'url("leagueoflegends.jpg")',
         backgroundPosition: '50% 50%', backgroundSize: 'cover',
-        zIndex: '-20', position: 'absolute', top: '0',
+        zIndex: '-20', position: 'fixed', top: '0',
         left: '0', width: '100%', height: '100%', opacity: '0.75'
       }}>
         &nbsp;
       </div>
       <div style={{backgroundColor: '#7FFFD4', zIndex: '-21',
-        position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'
+        position: 'fixed', top: '0', left: '0', width: '100%', height: '100%'
       }}>
         &nbsp;
       </div>
