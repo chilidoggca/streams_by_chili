@@ -4,7 +4,7 @@ function HomePage (props) {
   return (
     <main
       className='HomePage'
-      style={{padding: '60px 0'}}
+      style={{padding: '60px 0', overflowY: 'scroll'}}
     >
       <div style={{position: 'relative', height: '100%'}}>
       <div className="welcome" style={{position: 'absolute',
