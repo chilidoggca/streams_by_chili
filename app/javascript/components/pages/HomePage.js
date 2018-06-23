@@ -10,7 +10,8 @@ function HomePage (props) {
       <div className="welcome" style={{position: 'absolute',
         top: '50%', right: '0', paddingLeft: '50px', textAlign: 'right'
       }}>
-        <h1 style={{display: 'inline-block', color: 'rgba(255,255,255,0.9)'}}>
+        <h1 className="no-select" style={{display: 'inline-block',
+          color: 'rgba(255,255,255,0.9)', fontWeight: '600'}}>
           <span style={{fontSize: '0.8em'}}>Welcome to</span>
           <span style={{fontSize: '1.25em'}}> Streams </span>
         </h1>
@@ -19,7 +20,7 @@ function HomePage (props) {
             <defs>
               <mask id="bychili" x="0" y="0" width="200" height="40">
                 <rect x="0" y="0" width="200" height="40" fill="#ffffff"/>
-                <text textAnchor="middle" x="100" y="29" letterSpacing="10">
+                <text textAnchor="middle" x="100" y="29" letterSpacing="10" fontWeight="600">
                   by CHILI
                 </text>
               </mask>

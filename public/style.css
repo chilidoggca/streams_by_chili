@@ -15,6 +15,81 @@ a:active {
   color: #7FFFD4;
 }
 
+img {
+  image-rendering: crisp-edges;
+}
+
+/*------------------------
+	Helper css
+--------------------------*/
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+/*------------------------
+	Navbar css
+--------------------------*/
+.navbar-brand img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.navbar-brand:hover img {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+button.navbar-toggler {
+  padding: 0.5em;
+  width: 94px;
+  text-align: center;
+}
+button.navbar-toggler.collapsed::before {
+	content: "\2630  Menu";
+}
+button.navbar-toggler::before {
+  content: "X Close";
+}
+
+.nav-item a:link,
+.nav-item a:visited,
+.nav-item a:hover,
+.nav-item a:active {
+  text-decoration: none;
+  position: relative;
+}
+.nav-item a:hover {
+  color: #ffffff;
+}
+.nav-item a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background-color: #7FFFD4;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.nav-item a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/*------------------------
+	Home page css
+--------------------------*/
 main.HomePage {
   height: 100vh;
 }
@@ -79,62 +154,4 @@ a.google_oauth2:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-
-/*------------------------
-	Navbar css
---------------------------*/
-
-.navbar-brand img {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
-.navbar-brand:hover img {
-	-webkit-transform: scale(1.1);
-	transform: scale(1.1);
-}
-
-button.navbar-toggler {
-  padding: 0.5em;
-  width: 94px;
-  text-align: center;
-}
-button.navbar-toggler.collapsed::before {
-	content: "\2630  Menu";
-}
-button.navbar-toggler::before {
-  content: "X Close";
-}
-
-.nav-item a:link,
-.nav-item a:visited,
-.nav-item a:hover,
-.nav-item a:active {
-  text-decoration: none;
-  position: relative;
-}
-.nav-item a:hover {
-  color: #ffffff;
-}
-.nav-item a:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  bottom: -5px;
-  left: 0;
-  background-color: #7FFFD4;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-}
-.nav-item a:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
 }
