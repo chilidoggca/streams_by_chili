@@ -9,7 +9,7 @@ function HomePage (props) {
       <div className="welcome" style={{position: 'absolute',
         top: '50%', right: '50px', paddingLeft: '100px', textAlign: 'right'
       }}>
-        <h1 style={{display: 'inline-block', color: 'rgba(0,0,0,0.8)'}}>
+        <h1 style={{display: 'inline-block', color: 'rgba(255,255,255,0.9)'}}>
           <span style={{fontSize: '0.8em'}}>Welcome to</span>
           <span style={{fontSize: '1.25em'}}> Streams </span>
         </h1>
@@ -23,11 +23,11 @@ function HomePage (props) {
                 </text>
               </mask>
             </defs>
-            <rect x="0" y="0" width="200" height="40" mask="url(#bychili)" fillOpacity="0.8"/>
+            <rect x="0" y="0" width="200" height="40" mask="url(#bychili)" fill="rgba(255,255,255,0.9)" />
           </svg>
         </span>
       </div>
-      <div style={{background: 'url("pixels2.png") repeat scroll left top',
+      <div style={{background: 'url("pixels.png") repeat scroll left top',
         zIndex: '-19', position: 'absolute', top: '0',
         left: '0', width: '100%', height: '100%'
       }}>
