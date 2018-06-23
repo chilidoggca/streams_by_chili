@@ -4,10 +4,11 @@ function HomePage (props) {
   return (
     <main
       className='HomePage'
-      style={{padding: '60px 20px 20px'}}
+      style={{padding: '60px 0'}}
     >
+      <div style={{position: 'relative', height: '100%'}}>
       <div className="welcome" style={{position: 'absolute',
-        top: '50%', right: '50px', paddingLeft: '100px', textAlign: 'right'
+        top: '50%', right: '0', paddingLeft: '50px', textAlign: 'right'
       }}>
         <h1 style={{display: 'inline-block', color: 'rgba(255,255,255,0.9)'}}>
           <span style={{fontSize: '0.8em'}}>Welcome to</span>
@@ -26,6 +27,7 @@ function HomePage (props) {
             <rect x="0" y="0" width="200" height="40" mask="url(#bychili)" fill="rgba(255,255,255,0.9)" />
           </svg>
         </span>
+      </div>
       </div>
       <div style={{background: 'url("pixels.png") repeat scroll left top',
         zIndex: '-19', position: 'absolute', top: '0',
