@@ -95,6 +95,13 @@ button.navbar-toggler::before {
   transform: scaleX(1);
 }
 
+.nav-item {
+  margin: 5px 0px 5px 50px;
+}
+.collapse.show .nav-item:last-of-type {
+  margin-bottom: 20px;
+}
+
 /*------------------------
 	Home page css
 --------------------------*/

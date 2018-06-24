@@ -9,16 +9,22 @@ function NavBar (props) {
     >
       <div className="container">
         <Link className="navbar-brand" to="/"><img src="streamsbychili.png" style={{height: '45px'}} /></Link>
-        <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler collapsed" type="button"
+          data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation" style={{color: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.5)'}}
+        >
           {' '}
         </button>
-        <div className="collapse navbar-collapse bg-dark" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse bg-dark"
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link style={{marginLeft: '50px'}} to="/streams">Live Streams</Link>
+              <Link to="/streams">Live Streams</Link>
             </li>
             <li className="nav-item">
-              <Link style={{marginLeft: '50px'}} to="/messages">Chat Messages</Link>
+              <Link to="/messages">Chat Messages</Link>
             </li>
           </ul>
         </div>
