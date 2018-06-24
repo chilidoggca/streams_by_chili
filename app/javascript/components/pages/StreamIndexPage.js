@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Stream} from '../../requests/streams';
 import {Link} from 'react-router-dom';
+import {Loading} from '../Loading';
 
 class StreamIndexPage extends Component {
   constructor (props) {
@@ -28,7 +29,7 @@ class StreamIndexPage extends Component {
     if (loading) {
       return (
         <main className="StreamIndexPage">
-          <h3>Loading streams...</h3>
+          <Loading loadingContent="live streams" />
         </main>
       )
     }

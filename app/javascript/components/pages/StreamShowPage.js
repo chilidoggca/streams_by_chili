@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Iframe} from '../Iframe';
 import {ChatBox} from '../ChatBox';
+import {Loading} from '../Loading';
 import {Stream} from '../../requests/streams';
-// import {Message} from '../../requests/messages';
 
 class StreamShowPage extends Component {
 
@@ -35,18 +35,14 @@ class StreamShowPage extends Component {
 
     if (loading) {
       return (
-        <main
-          className="StreamShowPage"
-        >
-          <h3>Loading stream show page...</h3>
+        <main className="StreamShowPage">
+          <Loading loadingContent="stream show page" />
         </main>
       )
     }
 
     return (
-      <main
-        className="StreamShowPage"
-      >
+      <main className="StreamShowPage">
         <h2>Video</h2>
         <Iframe videoId={stream.id} />
         <ChatBox chatId={stream.liveStreamingDetails.activeLiveChatId} />

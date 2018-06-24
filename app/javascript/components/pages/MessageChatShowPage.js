@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Message} from '../../requests/messages';
 import {Link} from 'react-router-dom';
+import {Loading} from '../Loading';
 
 class MessageChatShowPage extends Component {
 
@@ -30,11 +31,13 @@ class MessageChatShowPage extends Component {
 
   render () {
     const {messages, chatId, loading} = this.state;
+    const chat = this.props.match.params.chatId;
+    const contentToBeLoaded = "messages in chat " + chat;
 
     if (loading) {
       return (
         <main className="MessageChatShowPage">
-          <h3>Loading messages show page by chat...</h3>
+          <Loading loadingContent={contentToBeLoaded} />
         </main>
       )
     }

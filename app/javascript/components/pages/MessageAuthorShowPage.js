@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Message} from '../../requests/messages';
 import {Link} from 'react-router-dom';
+import {Loading} from '../Loading';
 
 class MessageAuthorShowPage extends Component {
 
@@ -30,11 +31,13 @@ class MessageAuthorShowPage extends Component {
 
   render () {
     const {messages, author, loading} = this.state;
+    const {authorName} = this.props.match.params;
+    const contentToBeLoaded = "messages by " + authorName;
 
     if (loading) {
       return (
         <main className="MessageAuthorShowPage">
-          <h3>Loading messages show page by author...</h3>
+          <Loading loadingContent={contentToBeLoaded} />
         </main>
       )
     }

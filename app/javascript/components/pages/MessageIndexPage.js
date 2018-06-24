@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Message} from '../../requests/messages';
 import {Link} from 'react-router-dom';
+import {Loading} from '../Loading';
 
 class MessageIndexPage extends Component {
   constructor (props) {
@@ -28,7 +29,7 @@ class MessageIndexPage extends Component {
     if (loading) {
       return (
         <main className="MessageIndexPage">
-          <h3>Loading messages...</h3>
+          <Loading loadingContent="archived chat messages" />
         </main>
       )
     }
