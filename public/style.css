@@ -19,6 +19,10 @@ img {
   image-rendering: crisp-edges;
 }
 
+main {
+  padding: 60px 0;
+}
+
 /*------------------------
 	Helper css
 --------------------------*/
@@ -44,11 +48,15 @@ img {
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
 }
+.navbar-brand {
+  margin-left: 0.5em;
+}
 
 button.navbar-toggler {
   padding: 0.5em;
   width: 94px;
   text-align: center;
+  margin-right: 0.5em;
 }
 button.navbar-toggler.collapsed::before {
 	content: "\2630  Menu";

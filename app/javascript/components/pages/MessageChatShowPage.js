@@ -33,20 +33,14 @@ class MessageChatShowPage extends Component {
 
     if (loading) {
       return (
-        <main
-          className="MessageLoadingPage"
-          style={{padding:  '60px 20px 20px'}}
-        >
+        <main className="MessageChatShowPage">
           <h3>Loading messages show page by chat...</h3>
         </main>
       )
     }
 
     return (
-      <main
-        className="MessageChatShowPage"
-        style={{padding:  '60px 20px 20px'}}
-      >
+      <main className="MessageChatShowPage">
         <h2>Messages in Chat {chatId}</h2>
         <div style={{padding: '20px', backgroundColor: '#fafafa'}}>
         {

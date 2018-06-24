@@ -5,11 +5,7 @@ function NavBar (props) {
   return (
     <nav
       className="navbar fixed-top navbar-expand-md navbar-dark bg-dark"
-      style={{
-        padding: '10px',
-        display: 'flex',
-        height: '55px'
-      }}
+      style={{padding: 0}}
     >
       <div className="container">
         <Link className="navbar-brand" to="/"><img src="streamsbychili.png" style={{height: '45px'}} /></Link>

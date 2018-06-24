@@ -36,8 +36,7 @@ class StreamShowPage extends Component {
     if (loading) {
       return (
         <main
-          className="StreamLoadingPage"
-          style={{padding:  '60px 20px 20px'}}
+          className="StreamShowPage"
         >
           <h3>Loading stream show page...</h3>
         </main>
@@ -47,7 +46,6 @@ class StreamShowPage extends Component {
     return (
       <main
         className="StreamShowPage"
-        style={{padding:  '60px 20px 20px'}}
       >
         <h2>Video</h2>
         <Iframe videoId={stream.id} />

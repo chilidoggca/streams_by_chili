@@ -27,21 +27,15 @@ class StreamIndexPage extends Component {
 
     if (loading) {
       return (
-        <main
-          className="StreamIndexPage"
-          style={{padding:  '60px 20px 20px'}}
-        >
+        <main className="StreamIndexPage">
           <h3>Loading streams...</h3>
         </main>
       )
     }
 
     return (
-      <main
-        className="StreamIndexPage"
-        style={{padding:  '60px 20px 20px'}}
-      >
-        <h2>Streams</h2>
+      <main className="StreamIndexPage">
+        <h2>Live Streams</h2>
         <div className="streamListDiv">
           {
             this.state.streams.map(stream => (

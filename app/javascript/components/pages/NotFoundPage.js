@@ -2,10 +2,7 @@ import React from 'react';
 
 function NotFoundPage (props) {
   return (
-    <main
-      className='NotFoundPage'
-      style={{padding: '60px 20px 20px'}}
-    >
+    <main className='NotFoundPage'>
       <h1>404 Not Found</h1>
     </main>
   );

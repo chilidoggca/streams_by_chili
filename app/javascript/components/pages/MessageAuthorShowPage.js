@@ -33,20 +33,14 @@ class MessageAuthorShowPage extends Component {
 
     if (loading) {
       return (
-        <main
-          className="MessageLoadingPage"
-          style={{padding:  '60px 20px 20px'}}
-        >
+        <main className="MessageAuthorShowPage">
           <h3>Loading messages show page by author...</h3>
         </main>
       )
     }
 
     return (
-      <main
-        className="MessageAuthorShowPage"
-        style={{padding:  '60px 20px 20px'}}
-      >
+      <main className="MessageAuthorShowPage">
         <h2>Messages by {author}</h2>
         <div style={{padding: '20px', backgroundColor: '#fafafa'}}>
         {
