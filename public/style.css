@@ -15,10 +15,6 @@ a:active {
   color: #7FFFD4;
 }
 
-img {
-  image-rendering: crisp-edges;
-}
-
 main {
   padding: 60px 0;
 }

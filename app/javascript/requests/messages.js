@@ -35,5 +35,28 @@ export const Message = {
       `${BASE_URL}/api/v1/chats/get_messages?chat_id=${id}`
     )
       .then(res=> res.json())
+  },
+  post_to_chat (id, message, token) {
+    let data = {
+      "snippet": {
+        "liveChaatId": `${id}`,
+        "type": "textMessageEvent",
+        "textMessageDetails": {
+          "messageText": `${message}`
+        }
+      }
+    }
+    return fetch(
+      `https://www.googleapis.com/youtube/v3/liveChat/messages?part=snippet`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `BEARER ${token}`
+        },
+        method: 'POST',
+        body: JSON.stringify(data)
+      }
+    )
+      .then(res => res.json())
   }
 }
