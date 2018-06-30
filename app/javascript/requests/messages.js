@@ -51,7 +51,7 @@ export const Message = {
       {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `BEARER ${token}`
+          'Authorization': `Bearer ${token}`
         },
         method: 'POST',
         body: JSON.stringify(data)
