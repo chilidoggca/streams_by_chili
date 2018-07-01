@@ -38,11 +38,11 @@ export const Message = {
   },
   post_to_chat (id, message, token) {
     let data = {
-      "snippet": {
-        "liveChatId": `${id}`,
-        "type": "textMessageEvent",
-        "textMessageDetails": {
-          "messageText": `${message}`
+      "snippet" : {
+        "liveChatId" : id,
+        "type" : "textMessageEvent",
+        "textMessageDetails" : {
+          "messageText" : message
         }
       }
     }
@@ -50,8 +50,9 @@ export const Message = {
       `https://www.googleapis.com/youtube/v3/liveChat/messages?part=snippet`,
       {
         headers: {
+          'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': 'Bearer '+token
         },
         method: 'POST',
         body: JSON.stringify(data)

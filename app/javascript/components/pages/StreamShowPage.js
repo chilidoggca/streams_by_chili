@@ -11,7 +11,8 @@ class StreamShowPage extends Component {
 
     this.state = {
       loading: true,
-      stream: {}
+      stream: {},
+      token: props.token
     };
 
   }
@@ -30,8 +31,7 @@ class StreamShowPage extends Component {
   }
 
   render () {
-    const {stream, loading} = this.state;
-    // console.log(stream);
+    const {stream, loading, token} = this.state;
 
     if (loading) {
       return (
@@ -61,7 +61,7 @@ class StreamShowPage extends Component {
             <Iframe videoId={stream.id} thumbnail={stream.snippet.thumbnails.high.url} />
           </div>
           <div style={{width: '290px', flexGrow: '1', margin: '0 20px 20px 0'}}>
-            <ChatBox chatId={stream.liveStreamingDetails.activeLiveChatId} />
+            <ChatBox chatId={stream.liveStreamingDetails.activeLiveChatId} token={token} />
           </div>
         </div>
       </main>

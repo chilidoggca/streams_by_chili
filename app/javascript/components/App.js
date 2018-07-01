@@ -70,7 +70,9 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/streams" exact component={StreamIndexPage} />
-            <Route path="/streams/:videoId" component={StreamShowPage} />
+            <Route path="/streams/:videoId" render={ props => {
+              return <StreamShowPage {...props} token={token} />
+            }} /> />
             <Route path="/messages" exact component={MessageIndexPage} />
             <Route path="/messages/author/:authorName" exact component={MessageAuthorShowPage} />
             <Route path="/messages/chat/:chatId" exact component={MessageChatShowPage} />

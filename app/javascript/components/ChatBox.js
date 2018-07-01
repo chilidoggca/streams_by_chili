@@ -44,8 +44,7 @@ class ChatBox extends Component {
   }
 
   render () {
-    const {loading} = this.state;
-    const {messages} = this.state;
+    const {loading, messages} = this.state;
     console.log(messages);
     // console.log(this.props);
 
@@ -68,7 +67,7 @@ class ChatBox extends Component {
             LIVE
           </span>
         </h3>
-        <PostChatMessage id={this.props.chatId} />
+        <PostChatMessage chatId={this.props.chatId} token={this.props.token} />
         <div style={{
           backgroundColor: '#fafafa',
           width: '100%', height: '400px',

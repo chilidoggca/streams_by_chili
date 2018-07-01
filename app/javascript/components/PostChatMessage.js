@@ -10,24 +10,48 @@ class PostChatMessage extends Component {
     }
   }
 
-  submit (message) {
+  handleChange (name) {
+    return event => {
+      const {currentTarget} = event;
+      this.setState({
+        [name]: currentTarget.value
+      });
+    }
+  }
+
+  postMessage = (event) => {
+    event.preventDefault();
+    const {message} = this.state;
+    console.log([this.props.chatId, message, this.props.token]);
     Message
-      .post_to_chat(this.props.chatId, message, token)
+      .post_to_chat(this.props.chatId, message, this.props.token)
+      .then(
+        (res) => {
+          console.log(res);
+          this.setState({ message: '' });
+        }
+      );
   }
 
   render () {
-
+    const {message} = this.state;
     return (
       <div
         className="PostChatMessage"
         style={{padding: '40px 20px 2px 20px', backgroundColor: '#fafafa'}}
       >
-        <form className="PostMessageForm">
+        <form className="PostMessageForm" onSubmit={this.postMessage}>
           <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-end'}}>
             <div className="group" style={{flexGrow: '1'}}>
-              <input type="text" required />
+              <input
+                type="text"
+                name="message"
+                id="message"
+                value={message}
+                onChange={this.handleChange('message')}
+                required />
               <span className="bar"></span>
-              <label>Your message...</label>
+              <label htmlFor="message">Your message...</label>
             </div>
             <div style={{width: '105px', flexGrow: '0', textAlign: 'right'}}>
               <input type="submit" value="Send" />
