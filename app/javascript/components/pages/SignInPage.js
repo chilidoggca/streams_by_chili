@@ -43,7 +43,7 @@ class SignInPage extends Component {
             clientId={config.GOOGLE_FRONTEND_ID}
             onSuccess={this.responseGoogle}
             onFailure={this.onFailure}
-            scope="https://www.googleapis.com/auth/youtube.force-ssl"
+            scope="https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl"
             className="google_oauth2"
             style={{border: '0'}}
           >
