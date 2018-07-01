@@ -7,8 +7,10 @@ import {
   MessageIndexPage,
   MessageAuthorShowPage,
   MessageChatShowPage,
+  SignInPage
 } from './pages';
 import {NavBar} from './NavBar';
+import {Loading} from './Loading';
 import {
   BrowserRouter as Router,
   Route,
@@ -20,19 +22,30 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loading: false
+      loading: false,
+      user: "",
+      token: "",
+      signedIn: false
     };
   }
 
 
 
   render() {
-    const {loading} = this.state;
+    const {loading, user, token, signedIn} = this.state;
 
     if (loading) {
       return (
-        <div>
-          Loading...
+        <div className="App">
+          <Loading loadingContent="app" />
+        </div>
+      );
+    }
+
+    if (!signedIn || !user) {
+      return (
+        <div className="App">
+          <SignInPage />
         </div>
       );
     }

@@ -12,10 +12,11 @@ Rails.application.routes.draw do
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
-  authenticated :user do
-    root :to => "client#index"
-  end
-  root :to => "streams#index"
+  # authenticated :user do
+  #   root :to => "client#index"
+  # end
+  # root :to => "streams#index"
+  root :to => "client#index"
 
   resources :streams, only: :index
   get 'streams/details'

@@ -5,3 +5,4 @@ export * from './StreamShowPage';
 export * from './MessageIndexPage';
 export * from './MessageAuthorShowPage';
 export * from './MessageChatShowPage';
+export * from './SignInPage';

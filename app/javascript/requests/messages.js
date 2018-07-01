@@ -39,7 +39,7 @@ export const Message = {
   post_to_chat (id, message, token) {
     let data = {
       "snippet": {
-        "liveChaatId": `${id}`,
+        "liveChatId": `${id}`,
         "type": "textMessageEvent",
         "textMessageDetails": {
           "messageText": `${message}`

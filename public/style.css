@@ -6,6 +6,7 @@ html, body {
   -webkit-overflow-scrolling: touch;
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
 
 a:link,
@@ -119,7 +120,7 @@ div.welcome h1 {
   transform: translate(-50%, -50%);
 }
 
-.Loading h5 {
+h5.loading {
   -webkit-animation: fadeIn 1s infinite alternate;
   -moz-animation: fadeIn 1s infinite alternate;
   -o-animation: fadeIn 1s infinite alternate;
@@ -138,7 +139,88 @@ div.welcome h1 {
   from { opacity: 0; }
 }
 
+/* Input field material ui effects */
+.PostChatMessage .group {
+  position: relative;
+}
+.PostChatMessage .group input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  min-width: 210px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #666666;
+  background-color: #fafafa;
+}
+.PostChatMessage .group input:focus {
+  outline: none;
+}
+.PostChatMessage .group label {
+  color: #666666;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.3s ease all;
+}
+.PostChatMessage .group input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #666666;
+}
+.PostChatMessage .group input:focus ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #624DCC;
+}
+.PostChatMessage .group .bar  {
+  position: relative;
+  display: block;
+  min-width: 210px;
+  width: 100%;
+}
+.PostChatMessage .group .bar:before, .PostChatMessage .group .bar:after   {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #624DCC;
+}
+.PostChatMessage .group .bar:before {
+  left: 50%;
+}
+.PostChatMessage .group .bar:after {
+  right: 50%;
+}
+.PostChatMessage .group input:focus ~ .bar:before, .PostChatMessage .group input:focus ~ .bar:after {
+  width: 50%;
+  transition: 0.3s ease all;
+}
 
+/* Button styling */
+input[type=submit] {
+  background-color: #624DCC;
+  border-radius: 3px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bolder;
+  padding: 0.25em 1em;
+  margin: 0.5em;
+  align-items: center;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+input[type=submit]:focus {
+  outline: none;
+}
+input[type=submit]:hover {
+  background-color: #7C67E6;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
 
 /*------------------------
 	Sign up / login css
@@ -169,7 +251,7 @@ div.welcome h1 {
   max-width: 450px;
   opacity: 0.5;
 }
-a.google_oauth2 {
+a.google_oauth2, button.google_oauth2 {
   display: flex;
   border-radius: 3px;
   background-color: #4285f4;
@@ -179,14 +261,15 @@ a.google_oauth2 {
   font-weight: 500;
   height: 55px;
   width: 240px;
-  padding: 10px 20px 10px 5px;
+  padding: 5px 20px 5px 5px;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
 }
-a.google_oauth2:hover {
+a.google_oauth2:hover, button.google_oauth2:hover {
   background-color: #5C9FFF;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 .google_svg_bg {
   background-color: #ffffff;

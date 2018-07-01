@@ -7,18 +7,38 @@ class User < ApplicationRecord
 
   def self.from_omniauth(access_token)
     data = access_token.info
+    puts "+++++++++++++++++++++++++++++++++++++++++"
+    puts access_token
     # puts "+++++++++++++++++++++++++++++++++++++++++"
-    puts access_token.extra.id_token
+    # puts access_token.extra
+    # puts "+++++++++++++++++++++++++++++++++++++++++"
+    # puts access_token.credentials
+    # puts "+++++++++++++++++++++++++++++++++++++++++"
+    # puts access_token.credentials.token
+    # puts "+++++++++++++++++++++++++++++++++++++++++"
+    # puts access_token.credentials.expires_at*1000
     user = User.where(email: data['email']).first
-    # Uncomment the section below if you want users to be created if they don't exist
     unless user
       user = User.create(email: data['email'],
          password: Devise.friendly_token[0,20],
          provider: access_token.provider,
-         uid: access_token.uid
+         uid: access_token.uid,
+         access_token: access_token.credentials.token,
+         expires_at: access_token.credentials.expires_at*1000
       )
-     end
-     user
+    else
+      begin
+        user.update(
+          provider: access_token.provider,
+          uid: access_token.uid,
+          access_token: access_token.credentials.token,
+          expires_at: access_token.credentials.expires_at*1000
+        )
+      rescue
+        puts "user info could not be updated on sign in"
+      end
+    end
+    user
   end
 
 end
