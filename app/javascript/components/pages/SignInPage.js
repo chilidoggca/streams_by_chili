@@ -21,6 +21,7 @@ class SignInPage extends Component {
       user,
       token
     });
+    this.props.onTokenReceived(user, token);
   }
 
   onFailure = (error) => {

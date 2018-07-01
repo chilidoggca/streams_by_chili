@@ -22,14 +22,27 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loading: false,
+      loading: true,
       user: "",
       token: "",
       signedIn: false
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      loading: false
+    });
+  }
 
+  saveTokenToState = (user, token) => {
+    this.setState({
+      user,
+      token,
+      signedIn: true
+    });
+    // console.log(user, token);
+  }
 
   render() {
     const {loading, user, token, signedIn} = this.state;
@@ -45,7 +58,7 @@ class App extends Component {
     if (!signedIn || !user) {
       return (
         <div className="App">
-          <SignInPage />
+          <SignInPage onTokenReceived={this.saveTokenToState} />
         </div>
       );
     }
