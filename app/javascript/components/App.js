@@ -55,18 +55,18 @@ class App extends Component {
       );
     }
 
-    if (!signedIn || !user) {
-      return (
-        <div className="App">
-          <SignInPage onTokenReceived={this.saveTokenToState} />
-        </div>
-      );
-    }
+    // if (!signedIn || !user) {
+    //   return (
+    //     <div className="App">
+    //       <SignInPage onTokenReceived={this.saveTokenToState} />
+    //     </div>
+    //   );
+    // }
 
     return (
       <Router basename="/">
         <div className="App">
-          <NavBar />
+          <NavBar user={user} />
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/streams" exact component={StreamIndexPage} />

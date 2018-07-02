@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Message} from '../../requests/messages';
 import {Link} from 'react-router-dom';
 import {Loading} from '../Loading';
+import {FilterMessages} from '../FilterMessages';
 
 class MessageIndexPage extends Component {
   constructor (props) {
@@ -9,7 +10,8 @@ class MessageIndexPage extends Component {
 
     this.state = {
       loading: true,
-      messages: []
+      messages: [],
+      results: []
     };
 
   }
@@ -18,13 +20,19 @@ class MessageIndexPage extends Component {
     Message
       .all()
       .then(messages => {
-        this.setState({messages, loading: false})
+        this.setState({messages, results: messages, loading: false})
       });
   }
 
+  updateMessages = (props) => {
+    // const {messages} = this.state;
+    // console.log('parent', messages);
+    console.log(props);
+    this.setState({ results: props });
+  }
+
   render () {
-    const {loading} = this.state;
-    const {messages} = this.state;
+    const {loading, messages, results} = this.state;
 
     if (loading) {
       return (
@@ -36,10 +44,11 @@ class MessageIndexPage extends Component {
 
     return (
       <main className="MessageIndexPage">
-        <h2>All Messages</h2>
+        <h2>Messages Archive</h2>
+        <FilterMessages messages={messages} onFilterMessages={this.updateMessages} />
         <div style={{padding: '20px', backgroundColor: '#fafafa'}}>
           {
-            this.state.messages.map(message => (
+            results.map(message => (
               <div key={message.id}
                 className="messageItemDiv"
                 style={{
