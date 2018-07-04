@@ -24,34 +24,38 @@ $ cd streams_by_chili
    $ cd app/javascript/components/config
    $ touch config.json
    ```
+
   2. app_keys.rb (config/initializers/app_keys.rb)
 
 ##### Configure the following files:
+
   1. config.json (app/javascript/components/config/config.json)
     ```
     {
       "GOOGLE_FRONTEND_ID": "Your google client id"
     }
-
     ```
+
   2. app_keys.rb (config/initializers/app_keys.rb)
     ```
     ENV['GOOGLE_API_KEY'] = 'Your google api key'
     ENV['GOOGLE_CLIENT_ID'] = 'Your google client id'
     ENV['GOOGLE_CLIENT_SECRET'] = 'Your google client secret'
     ```
+
   3. config.js (app/javascript/requests/config.js)
     ```
     export const BASE_URL = 'http://localhost:3000'
     ```
 
 ##### Run on localhost:3000
-  - Navigate to project root folder in your CLI then run:
-```
-$ rails db:create
-$ rails db:migrate
-$ rails s
-```
+
+  - Navigate to project root folder in your CLI then run:  
+  ```
+  $ rails db:create
+  $ rails db:migrate
+  $ rails s
+  ```
 
 
 ### Technologies
