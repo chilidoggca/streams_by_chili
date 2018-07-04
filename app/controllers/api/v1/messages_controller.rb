@@ -18,4 +18,24 @@ class Api::V1::MessagesController < Api::ApplicationController
     render json: @messages
   end
 
+  def stats_author
+    if params[:order]&.upcase == 'ASC'
+      @order = params[:order]
+    else
+      @order = 'DESC'
+    end
+    @messages = Message.group_by_author(@order)
+    render json: @messages
+  end
+
+  def stats_author_24h
+    if params[:order]&.upcase == 'ASC'
+      @order = params[:order]
+    else
+      @order = 'DESC'
+    end
+    @messages = Message.group_by_author_24h(@order)
+    render json: @messages
+  end
+
 end

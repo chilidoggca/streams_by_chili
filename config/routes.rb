@@ -34,6 +34,8 @@ Rails.application.routes.draw do
       get 'chats/get_messages', :to => 'chats#get_messages'
       get 'messages/author', :to => 'messages#author'
       get 'messages/chat', :to => 'messages#chat'
+      get 'messages/stats_author', :to => 'messages#stats_author'
+      get 'messages/stats_author_24h', :to => 'messages#stats_author_24h'
       resources :streams, only: [:index]
       resources :messages, only: [:index]
       resources :tokens, only: [:create]

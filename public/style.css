@@ -113,6 +113,7 @@ div.welcome h1 {
 /*------------------------
 	Components css
 --------------------------*/
+/* Loading */
 .Loading {
   position: absolute;
   top: 50%;
@@ -137,6 +138,26 @@ h5.loading {
 }
 @-webkit-keyframes fadeIn {
   from { opacity: 0; }
+}
+
+/* ExternalLinks */
+a[href].external-links {
+  color: #ffffff;
+  background-color: #7FFFD4;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a.external-links:hover,
+a.external-links:active,
+a.external-links:focus {
+  background-color: #ffffff;
+  color: #7FFFD4;
 }
 
 /* Input field material ui effects */
@@ -225,6 +246,18 @@ button[type=submit]:focus, input[type=submit]:focus {
 button[type=submit]:hover, input[type=submit]:hover {
   background-color: #7C67E6;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+/* SortByColumn */
+a[href].sort-arrow {
+  color: #cccccc;
+  text-decoration: none;
+}
+a.sort-arrow:hover,
+a.sort-arrow:active,
+a.sort-arrow:focus {
+  color: #7FFFD4;
+  text-decoration: none;
 }
 
 /*------------------------

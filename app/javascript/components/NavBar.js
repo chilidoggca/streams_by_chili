@@ -33,10 +33,13 @@ class NavBar extends Component {
           >
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to="/streams">Live Streams</Link>
+                <Link to="/streams">Streams</Link>
               </li>
               <li className="nav-item">
                 <Link to="/messages">Chat Messages</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/stats">Stats</Link>
               </li>
             </ul>
           </div>

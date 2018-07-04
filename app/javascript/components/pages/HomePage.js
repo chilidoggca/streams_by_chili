@@ -1,4 +1,5 @@
 import React from 'react';
+import {ExternalLinks} from '../ExternalLinks';
 
 function HomePage (props) {
   return (
@@ -28,6 +29,8 @@ function HomePage (props) {
             <rect x="0" y="0" width="200" height="40" mask="url(#bychili)" fill="rgba(255,255,255,0.9)" />
           </svg>
         </span>
+        <br />
+        <ExternalLinks />
       </div>
       </div>
       <div style={{background: 'url("pixels.png") repeat scroll left top',

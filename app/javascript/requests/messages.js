@@ -1,20 +1,11 @@
 import {BASE_URL} from './config';
 
-function getJwt() {
-  return `JWT ${localStorage.getItem('jwt')}`;
-}
-
 // HTTP REQUESTS
 
 export const Message = {
   all () {
     return fetch(
-      `${BASE_URL}/api/v1/messages`,
-      // {
-      //   headers: {
-      //     'Authorization': getJwt()
-      //    }
-      // }
+      `${BASE_URL}/api/v1/messages`
     )
       .then(res => res.json())
   },
@@ -32,6 +23,8 @@ export const Message = {
   },
   save_by_chat (id) {
     return fetch(
+      // 👇🏽 this backend endpoint get messages from Youtube API
+      // then saves them into local database
       `${BASE_URL}/api/v1/chats/get_messages?chat_id=${id}`
     )
       .then(res=> res.json())
@@ -57,6 +50,18 @@ export const Message = {
         method: 'POST',
         body: JSON.stringify(data)
       }
+    )
+      .then(res => res.json())
+  },
+  get_stats_author (order = '') {
+    return fetch(
+      `${BASE_URL}/api/v1/messages/stats_author?order=` + order
+    )
+      .then(res => res.json())
+  },
+  get_stats_author_24h (order = '') {
+    return fetch(
+      `${BASE_URL}/api/v1/messages/stats_author_24h?order=` + order
     )
       .then(res => res.json())
   }

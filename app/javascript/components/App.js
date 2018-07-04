@@ -7,6 +7,7 @@ import {
   MessageIndexPage,
   MessageAuthorShowPage,
   MessageChatShowPage,
+  StatsPage,
   SignInPage
 } from './pages';
 import {NavBar} from './NavBar';
@@ -55,13 +56,13 @@ class App extends Component {
       );
     }
 
-    // if (!signedIn || !user) {
-    //   return (
-    //     <div className="App">
-    //       <SignInPage onTokenReceived={this.saveTokenToState} />
-    //     </div>
-    //   );
-    // }
+    if (!signedIn || !user) {
+      return (
+        <div className="App">
+          <SignInPage onTokenReceived={this.saveTokenToState} />
+        </div>
+      );
+    }
 
     return (
       <Router basename="/">
@@ -76,6 +77,7 @@ class App extends Component {
             <Route path="/messages" exact component={MessageIndexPage} />
             <Route path="/messages/author/:authorName" exact component={MessageAuthorShowPage} />
             <Route path="/messages/chat/:chatId" exact component={MessageChatShowPage} />
+            <Route path="/stats" exact component={StatsPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>
