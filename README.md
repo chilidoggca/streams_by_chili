@@ -11,12 +11,12 @@
 
 ### Installation:
 
-##### Clone from github repo:
+#### Clone from github repo:
 ```
 $ git clone https://github.com/chilidoggca/streams_by_chili.git
 $ cd streams_by_chili
 ```
-##### Create the following files in their corresponding project paths
+#### Create the following files in their corresponding project paths
   1. config.json (app/javascript/components/config/config.json)
 
     - For example:
@@ -27,9 +27,10 @@ $ cd streams_by_chili
 
   2. app_keys.rb (config/initializers/app_keys.rb)
 
-##### Configure the following files:
+#### Configure the following files:
 
   1. config.json (app/javascript/components/config/config.json)
+
     ```
     {
       "GOOGLE_FRONTEND_ID": "Your google client id"
@@ -37,6 +38,7 @@ $ cd streams_by_chili
     ```
 
   2. app_keys.rb (config/initializers/app_keys.rb)
+
     ```
     ENV['GOOGLE_API_KEY'] = 'Your google api key'
     ENV['GOOGLE_CLIENT_ID'] = 'Your google client id'
@@ -44,11 +46,12 @@ $ cd streams_by_chili
     ```
 
   3. config.js (app/javascript/requests/config.js)
+
     ```
     export const BASE_URL = 'http://localhost:3000'
     ```
 
-##### Run on localhost:3000
+#### Run on localhost:3000
 
   - Navigate to project root folder in your CLI then run:  
   ```
