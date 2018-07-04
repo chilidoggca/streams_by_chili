@@ -31,7 +31,7 @@ $ cd streams_by_chili
 
   1. config.json (app/javascript/components/config/config.json)
 
-    ```
+    ```javascript
     {
       "GOOGLE_FRONTEND_ID": "Your google client id"
     }
@@ -39,7 +39,7 @@ $ cd streams_by_chili
 
   2. app_keys.rb (config/initializers/app_keys.rb)
 
-    ```
+    ```ruby
     ENV['GOOGLE_API_KEY'] = 'Your google api key'
     ENV['GOOGLE_CLIENT_ID'] = 'Your google client id'
     ENV['GOOGLE_CLIENT_SECRET'] = 'Your google client secret'
@@ -47,7 +47,7 @@ $ cd streams_by_chili
 
   3. config.js (app/javascript/requests/config.js)
 
-    ```
+    ```javascript
     export const BASE_URL = 'http://localhost:3000'
     ```
 
