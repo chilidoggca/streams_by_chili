@@ -12,8 +12,15 @@
 ### Installation:
 
 #### Prerequisites
- - Before proceeding, make sure you have the following installed on your machine: Git, Ruby, Ruby on Rails, Postgresql and pgAdmin (or other database manager of your choice)
- - Here is a guide on setting up Ruby on Rails in macOS Mojave: https://gorails.com/setup/osx/10.14-mojave
+Before proceeding, make sure you have the following installed on your machine:
+ - Git
+ - Ruby
+ - Ruby on Rails
+ - Postgresql
+ - pgAdmin (or other database manager of your choice)
+ - Yarn (required by rails/webpacker to run JS packages)
+
+Here is a guide on setting up Ruby on Rails in macOS Mojave: https://gorails.com/setup/osx/10.14-mojave
 
 #### Clone from github repo:
 ```
@@ -65,6 +72,13 @@ $ cd streams_by_chili
   $ rails s
   ```
 
+### Troubleshoot
+
+- If the project does not run because of webpack, double check that you have yarn installed. Next, consider reviewing their documentation/issues pages for further problems (https://github.com/rails/webpacker).
+
+- Double check the config files are set up correctly in their corresponding folder paths.
+
+- Feel free to contact me for support running this project on your local machines.
 
 ### Technologies
   - Ruby on Rails
