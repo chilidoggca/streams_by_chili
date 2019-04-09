@@ -31,7 +31,7 @@ $ cd streams_by_chili
 
   1. config.json (app/javascript/components/config/config.json)
 
-    ```javascript
+    ```json
     {
       "GOOGLE_FRONTEND_ID": "Your google client id"
     }
@@ -55,6 +55,7 @@ $ cd streams_by_chili
 
   - Navigate to project root folder in your CLI then run:  
   ```
+  $ bundle
   $ rails db:create
   $ rails db:migrate
   $ rails s
