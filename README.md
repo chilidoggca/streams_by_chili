@@ -10,6 +10,7 @@
  - <a href="https://streams-by-chili.herokuapp.com" target="_blank">https://streams-by-chili.herokuapp.com</a>
 
 ### Installation:
+ - Before proceeding, make sure you have Ruby on Rails installed on your machine. Here is a guide on setting up RoR in macOS Mojave: https://gorails.com/setup/osx/10.14-mojave
 
 #### Clone from github repo:
 ```
