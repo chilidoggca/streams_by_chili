@@ -30,11 +30,13 @@ $ cd streams_by_chili
 #### Create the following files in their corresponding project paths
   1. config.json (app/javascript/components/config/config.json)
 
-    - For example:
-   ```
-   $ cd app/javascript/components/config
-   $ touch config.json
-   ```
+  - For example:
+```
+$ cd app/javascript/components
+$ mkdir config
+$ cd config
+$ touch config.json
+```
 
   2. app_keys.rb (config/initializers/app_keys.rb)
 
@@ -42,25 +44,25 @@ $ cd streams_by_chili
 
   1. config.json (app/javascript/components/config/config.json)
 
-    ```json
-    {
-      "GOOGLE_FRONTEND_ID": "Your google client id"
-    }
-    ```
+```json
+{
+  "GOOGLE_FRONTEND_ID": "Your google client id"
+}
+```
 
   2. app_keys.rb (config/initializers/app_keys.rb)
 
-    ```ruby
-    ENV['GOOGLE_API_KEY'] = 'Your google api key'
-    ENV['GOOGLE_CLIENT_ID'] = 'Your google client id'
-    ENV['GOOGLE_CLIENT_SECRET'] = 'Your google client secret'
-    ```
+```ruby
+ENV['GOOGLE_API_KEY'] = 'Your google api key'
+ENV['GOOGLE_CLIENT_ID'] = 'Your google client id'
+ENV['GOOGLE_CLIENT_SECRET'] = 'Your google client secret'
+```
 
   3. config.js (app/javascript/requests/config.js)
 
-    ```javascript
-    export const BASE_URL = 'http://localhost:3000'
-    ```
+```javascript
+export const BASE_URL = 'http://localhost:3000'
+```
 
 #### Run on localhost:3000
 
@@ -74,7 +76,7 @@ $ cd streams_by_chili
 
 ### Troubleshoot
 
-- If the project does not run because of webpack, double check that you have yarn installed. Next, consider reviewing their documentation/issues pages for further problems (https://github.com/rails/webpacker).
+- If the project does not run because of webpacker, double check that you have yarn installed. Next, consider reviewing official <a href="https://github.com/rails/webpacker" target="_blank">rails/webpacker</a> documentation/issues pages for further problems.
 
 - Double check the config files are set up correctly in their corresponding folder paths.
 
