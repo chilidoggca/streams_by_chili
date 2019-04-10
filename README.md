@@ -71,8 +71,11 @@ export const BASE_URL = 'http://localhost:3000'
   $ bundle
   $ rails db:create
   $ rails db:migrate
+  $ yarn
   $ rails s
   ```
+  
+  - Optional: `$ webpack -w` Running webpack concurrently with the rails server will speed up performance
 
 ### Troubleshoot
 
